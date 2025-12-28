@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -43,6 +42,10 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
         footer {
             background: #2E7D32;
             color: white;
@@ -54,22 +57,481 @@
             color: #212121;
             padding: 1em;
             text-align: center;
+            border-radius: 8px; 
+            margin-top: 1em;
+        }
+         
+        /* Added CSS for About Us background image */
+        #about {
+            padding: 3em 2em;
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            position: relative;
+        }
+        
+        #about h2 {
+            position: relative;
+            z-index: 2;
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+        
+        #about p {
+            position: relative;
+            z-index: 2;
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        #mission-vision {
+            padding: 3em 2em;
+            background: #ffffff;
+            text-align: center;
+        }
+        
+        #mission-vision h2 {
+            color: #2E7D32;
+            font-size: 2.5em;
+            margin-bottom: 2em;
+        }
+        
+        .mv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .mv-card {
+            background: white;
+            padding: 2.5em 2em;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-top: 5px solid #2E7D32;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        
+        .mv-icon {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            color: #2E7D32;
+        }
+        
+        .mv-card h3 {
+            color: #2E7D32;
+            font-size: 1.8em;
+            margin-bottom: 1em;
+        }
+        
+        .mv-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin-top: 2em;
+        }
+        
+        .value-item {
+            background: #F1F8E9;
+            padding: 1.5em;
+            border-radius: 10px;
+            text-align: left;
+            border-left: 4px solid #388E3C;
+            transition: transform 0.3s ease;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+            background: #E8F5E9;
+        }
+        
+        .value-icon {
+            font-size: 2em;
+            color: #2E7D32;
+            margin-bottom: 0.5em;
+        }
+        
+        .value-item h4 {
+            color: #2E7D32;
+            margin: 0.5em 0;
+            font-size: 1.3em;
+        }
+        
+        .value-item p {
+            font-size: 1em;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Founders Section */
+        #founders {
+            padding: 3em 2em;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            text-align: center;
+        }
+        
+        #founders h2 {
+            color: #2E7D32;
+            font-size: 2.5em;
+            margin-bottom: 2em;
+        }
+        
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .founder-card {
+            background: white;
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .founder-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .founder-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #2E7D32;
+            margin-bottom: 1em;
+        }
+        
+        .founder-card h3 {
+            color: #2E7D32;
+            margin: 0.5em 0;
+            font-size: 1.5em;
+        }
+        
+        .position {
+            color: #388E3C;
+            font-weight: bold;
+            margin-bottom: 1em;
+            font-size: 1.1em;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 1em;
             border-radius: 8px;
             margin-top: 1em;
+            text-align: left;
+        }
+        
+        .contact-info p {
+            margin: 0.5em 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-icon {
+            color: #2E7D32;
+            font-weight: bold;
+        }
+        
+        #stats {
+            padding: 3em 2em;
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stat-item {
+            padding: 1.5em;
+        }
+        
+        .stat-item h3 {
+            font-size: 3em;
+            margin: 0.5em 0;
+            color: #FFC107;
+        }
+        
+        .stat-item p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        #process {
+            padding: 3em 2em;
+            background: #ffffff;
+            text-align: center;
+        }
+        
+        #process h2 {
+            color: #2E7D32;
+            font-size: 2.5em;
+            margin-bottom: 2em;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            padding: 2em 1em;
+            background: #F1F8E9;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            background: #E8F5E9;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .step h3 {
+            color: #2E7D32;
+            margin: 1.5em 0 1em 0;
+        }
+
+        /* Services section with gradient background */
+        #services {
+            padding: 3em 2em;
+            background: linear-gradient(135deg, #F1F8E9 0%, #E8F5E9 50%, #DCEDC8 100%);
+            position: relative;
+        }
+
+        #services h2 {
+            text-align: center;
+            color: #2E7D32;
+            margin-bottom: 2em;
+            font-size: 2.5em;
+            position: relative;
+            z-index: 2;
+        }
+
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(46, 125, 50, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.05) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        #services .services {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Portfolio section styling */
+        #portfolio h2 {
+            text-align: center;
+            color: #2E7D32;
+            margin-bottom: 2em;
+            font-size: 2.5em;
+        }
+        
+        /* Testimonials section styling */
+        #testimonials h2 {
+            text-align: center;
+            color: #2E7D32;
+            margin-bottom: 2em;
+            font-size: 2.5em;
+        }
+        
+        #testimonials .service-box {
+            border-left: 4px solid #FFC107;
+        }
+        
+        /* Contact section styling */
+        #contact {
+            padding: 3em 2em;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        #contact h2 {
+            text-align: center;
+            color: #2E7D32;
+            margin-bottom: 1em;
+            font-size: 2.5em;
+        }
+
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info-box {
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h3 {
+            color: #2E7D32;
+            margin-bottom: 1.5em;
+            text-align: center;
+        }
+        
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.8em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1em;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #2E7D32;
+            color: white;
+            border: none;
+            padding: 1em;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .submit-btn:hover {
+            background: #1B5E20;
+        }
+
+        .social-links {
+            margin: 1em 0 2em 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-size: 1.5em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        
+        #backToTop:hover {
+            background: #1B5E20;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="takwimu-hub-logo.png" alt="Takwimu Hub Logo" width="160" height="160" style="border-radius: 12px; margin-bottom: 1em;" />
+    <!-- Logo Placeholder -->
+    <img src="takwimu-hub-logo.png" alt="Takwimu Hub Logo" width="160" height="160" style="border-radius: 12px; margin-bottom: 1em;"/>
     <h1>Takwimu Hub</h1>
     <p>Empowering Africa with Insightful Data Solutions</p>
 </header>
 
 <nav>
     <a href="#about">About</a>
+    <a href="#mission-vision">Mission & Values</a>
+    <a href="#founders">Founders</a>
+    <a href="#stats">Stats</a>
     <a href="#services">Services</a>
+    <a href="#process">Process</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
@@ -77,7 +539,103 @@
 
 <section id="about">
     <h2>About Us</h2>
-    <p>Takwimu Hub is a data consultancy firm based in Kenya focused on transforming African institutions through data-driven decisions. We provide advanced analytics, predictive modeling, and strategic insights to NGOs, SMEs, governments, and startups.</p>
+    <p>Takwimu Hub is a data consultancy firm based in Kenya focused  on transforming African institutions through data-driven decisions. We provide advanced analytics, predictive modeling, and strategic insights to NGOs, SMEs, governments, and startups.</p>
+</section>
+
+<section id="mission-vision">
+    <h2>Our Mission, Vision & Core Values</h2>
+    
+    <div class="mv-container">
+        <!-- Mission Card -->
+        <div class="mv-card">
+            <div class="mv-icon">🎯</div>
+            <h3>Our Mission</h3>
+            <p>To empower African businesses and organizations with actionable data insights that drive growth, innovation, and sustainable development across the continent.</p>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="mv-card">
+            <div class="mv-icon">🔭</div>
+            <h3>Our Vision</h3>
+            <p>To become Africa's leading data consultancy, transforming how decisions are made and setting the standard for data-driven excellence in emerging markets.</p>
+        </div>
+
+        <!-- Values Card -->
+        <div class="mv-card" style="grid-column: span 2;">
+            <div class="mv-icon">💎</div>
+            <h3>Our Core Values</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🎯</div>
+                    <h4>Excellence</h4>
+                    <p>We deliver exceptional quality in every project, ensuring our solutions exceed expectations.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h4>Integrity</h4>
+                    <p>We maintain transparency, honesty, and ethical standards in all our dealings.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🌍</div>
+                    <h4>African Focus</h4>
+                    <p>We understand local contexts and design solutions specifically for African challenges.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">💡</div>
+                    <h4>Innovation</h4>
+                    <p>We embrace new technologies and creative approaches to solve complex problems.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">👥</div>
+                    <h4>Collaboration</h4>
+                    <p>We work closely with clients, treating them as partners in the journey to success.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">📚</div>
+                    <h4>Knowledge Sharing</h4>
+                    <p>We empower others through training and capacity building across Africa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="founders">
+    <h2>Meet Our Founders</h2>
+    <div class="founders-grid">
+        <div class="founder-card">
+            <img src="IMG_20250609_121935.jpg" alt="Richard Ndiege" class="founder-img">
+            <h3>Richard Ndiege Otieno</h3>
+            <p class="position">Chief Executive Officer & Lead Data Scientist</p>
+            <p>With over 5 years in data analytics and machine learning, Richard leads our technical vision and strategic direction.</p>
+            <div class="contact-info">
+                <p><span class="contact-icon">📧</span> richard@takwimuhub.co.ke</p>
+                <p><span class="contact-icon">📱</span> +254 759 159 461</p>
+                <p><span class="contact-icon">💼</span> LinkedIn: Richard-Ndiege-Takwimu</p>
+            </div>
+        </div>
+</section>  
+
+<section id="stats">
+    <h2>Our Impact in Numbers</h2>
+    <div class="stats-container">
+        <div class="stat-item">
+            <h3 id="projectCount">0</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+            <h3 id="clientCount">0</h3>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-item">
+            <h3 id="experienceCount">0</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3 id="teamCount">0</h3>
+            <p>Team Members</p>
+        </div>
+    </div>
 </section>
 
 <section id="services">
@@ -85,7 +643,7 @@
     <div class="services">
         <div class="service-box">
             <h3>Data Analysis and Visualizations</h3>
-            <p>Clear dashboards and reports using PowerBI, Tableau, and Python.</p>
+            <p>Clear dashboards and reports using PowerBI, Tableau, and python.</p>
         </div>
         <div class="service-box">
             <h3>Predictive Analytics and Machine Learning</h3>
@@ -98,6 +656,32 @@
         <div class="service-box">
             <h3>Training and Capacity Building</h3>
             <p>Workshops in data science, Python, and decision-making tools.</p>
+        </div>
+    </div>
+</section>
+
+<section id="process">
+    <h2>Our Data-Driven Process</h2>
+    <div class="process-steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Discovery & Consultation</h3>
+            <p>We start by understanding your business needs, goals, and data challenges through in-depth consultations.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Data Analysis & Exploration</h3>
+            <p>Our team dives deep into your data, cleaning, exploring, and identifying key patterns and insights.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Solution Development</h3>
+            <p>We build customized data solutions, predictive models, and interactive dashboards tailored to your needs.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Implementation & Training</h3>
+            <p>We deploy the solution and provide comprehensive training to ensure your team can leverage the insights.</p>
         </div>
     </div>
 </section>
@@ -117,6 +701,10 @@
             <h3>Smart Ambulance Route Optimization</h3>
             <p>Used GPS and real-time traffic data to build a system that recommends shortest routes for emergency response teams in Nairobi</p>
         </div>
+        <div class="service-box">
+            <h3>Anti-Scam Detection</h3>
+            <p>Built a system using anomaly detection and a big data techniques to flag fraudulent activity patterns.</p>
+        </div>
     </div>
 </section>
 
@@ -124,10 +712,10 @@
     <h2>What Our Clients Say</h2>
     <div class="services">
         <div class="service-box">
-            <p>"Takwimu Hub helped us understand our customer behavior through detailed analytics. Our decisions are now fully data-backed."<br><strong>- Grace M., Startup Founder</strong></p>
+            <p>"Takwimu Hub helped us understand our customer behavior through detailed analytics. Our decisions are now fully data-backed."<br><strong>-Grace M., Startup Founder</strong></p>
         </div>
         <div class="service-box">
-            <p>"Their team delivered an agricultural dashboard that changed how we invest. Highly recommended for data consulting in East Africa."<br><strong>- David K., Agribusiness Consultant</strong></p>
+            <p>"Their team deliverd an agricultural dashboard that changed how we invest. Highly recommended for data consulting in East Africa."<br><strong>- David K., Agribusiness Consultant</strong></p>
         </div>
         <div class="service-box">
             <p>"The visualizations were easy to understand and presented with clarity. I was impressed by their professionalism." <br><strong>- Prof. M. Otieno, University Partner</strong></p>
@@ -137,16 +725,117 @@
 
 <section id="contact">
     <h2>Contact Us</h2>
-    <div class="cta">
-        <p>Email: <strong>info@takwimuhub.co.ke</strong></p>
-        <p>Phone: +254 712 345 678</p>
-        <p>Let's transform data into impact together.</p>
+    <div class="contact-container">
+        <div class="contact-info-box">
+            <h3>Get in Touch</h3>
+            <div class="cta">
+                <p>Email: <strong>info@takwimuhub.co.ke</strong></p>
+                <p>Phone: +254 712 345 678</p>
+                <p>Address: Nairobi, Kenya</p>
+                <p>Business Hours: Mon-Fri, 8AM-5PM EAT</p>
+                <p>Let's transform data into impact together.</p>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
     </div>
 </section>
-
+    
 <footer>
+    <div class="social-links">
+        <a href="#"><span class="contact-icon">📘</span> Facebook</a>
+        <a href="#"><span class="contact-icon">🐦</span> Twitter</a>
+        <a href="#"><span class="contact-icon">💼</span> LinkedIn</a>
+        <a href="#"><span class="contact-icon">📸</span> Instagram</a>
+        <a href="#"><span class="contact-icon">▶️</span> YouTube</a>
+    </div>
     &copy; 2025 Takwimu Hub. All Rights Reserved.
 </footer>
+
+<button id="backToTop" title="Go to top">↑</button>
+
+<script>
+    // Statistics Counter Animation
+    function animateCounter(id, start, end, duration) {
+        let obj = document.getElementById(id);
+        let startTime = null;
+        
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            let timeElapsed = currentTime - startTime;
+            let progress = Math.min(timeElapsed / duration, 1);
+            
+            let value = Math.floor(progress * (end - start) + start);
+            obj.textContent = value;
+            
+            if (progress < 1) {
+                requestAnimationFrame(animation);
+            }
+        }
+        
+        requestAnimationFrame(animation);
+    }
+    
+    // Initialize counters when page loads
+    window.addEventListener('load', function() {
+        // Start counters
+        animateCounter('projectCount', 0, 50, 2000);
+        animateCounter('clientCount', 0, 30, 2000);
+        animateCounter('experienceCount', 0, 5, 2000);
+        animateCounter('teamCount', 0, 15, 2000);
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Contact Form Submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
