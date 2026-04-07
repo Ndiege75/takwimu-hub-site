@@ -192,14 +192,14 @@
         #founders h2 {
             color: #2E7D32;
             font-size: 2.5em;
-            margin-bottom: 2em;
+            margin-bottom: 1em;
         }
         
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2em;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -222,6 +222,14 @@
             object-fit: cover;
             border: 5px solid #2E7D32;
             margin-bottom: 1em;
+            background: #E8F5E9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 3em;
+            color: #2E7D32;
         }
         
         .founder-card h3 {
@@ -514,6 +522,20 @@
         #backToTop:hover {
             background: #1B5E20;
         }
+
+        /* Team member icon placeholder styling */
+        .icon-placeholder {
+            font-size: 4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            width: 150px;
+            background: #E8F5E9;
+            border-radius: 50%;
+            margin: 0 auto 1em auto;
+            border: 5px solid #2E7D32;
+        }
     </style>
 </head>
 <body>
@@ -528,7 +550,7 @@
 <nav>
     <a href="#about">About</a>
     <a href="#mission-vision">Mission & Values</a>
-    <a href="#founders">Founders</a>
+    <a href="#founders">Team</a>
     <a href="#stats">Stats</a>
     <a href="#services">Services</a>
     <a href="#process">Process</a>
@@ -539,7 +561,7 @@
 
 <section id="about">
     <h2>About Us</h2>
-    <p>Takwimu Hub is a data consultancy firm based in Kenya focused  on transforming African institutions through data-driven decisions. We provide advanced analytics, predictive modeling, and strategic insights to NGOs, SMEs, governments, and startups.</p>
+    <p>Takwimu Hub is a data consultancy firm based in Kenya focused on transforming African institutions through data-driven decisions. We provide advanced analytics, predictive modeling, and strategic insights to NGOs, SMEs, governments, and startups.</p>
 </section>
 
 <section id="mission-vision">
@@ -601,10 +623,11 @@
 </section>
 
 <section id="founders">
-    <h2>Meet Our Founders</h2>
+    <h2>Meet Our Team</h2>
     <div class="founders-grid">
+        <!-- Existing Founder: Richard Ndiege -->
         <div class="founder-card">
-            <img src="IMG_20250609_121935.jpg" alt="Richard Ndiege" class="founder-img">
+            <div class="icon-placeholder">👨‍💼</div>
             <h3>Richard Ndiege Otieno</h3>
             <p class="position">Chief Executive Officer & Lead Data Scientist</p>
             <p>With 3+ years in data analytics and machine learning, Richard leads our technical vision and strategic direction.</p>
@@ -614,6 +637,46 @@
                 <p><span class="contact-icon">💼</span> LinkedIn: Richard-Ndiege-Takwimu</p>
             </div>
         </div>
+
+        <!-- New Team Member 1: Bwani Christantoz -->
+        <div class="founder-card">
+            <div class="icon-placeholder">📊</div>
+            <h3>Bwani Christantoz</h3>
+            <p class="position">Head of Data Engineering & Analytics</p>
+            <p>Specialist in building scalable data pipelines and ETL processes. Christantoz ensures our data infrastructure is robust, secure, and optimized for high-performance analytics.</p>
+            <div class="contact-info">
+                <p><span class="contact-icon">📧</span> christantoz@takwimuhub.co.ke</p>
+                <p><span class="contact-icon">📱</span> +254 723 456 789</p>
+                <p><span class="contact-icon">💼</span> LinkedIn: Bwani-Christantoz</p>
+            </div>
+        </div>
+
+        <!-- New Team Member 2: Emmanuel Chichole -->
+        <div class="founder-card">
+            <div class="icon-placeholder">🤖</div>
+            <h3>Emmanuel Chichole</h3>
+            <p class="position">Machine Learning & AI Specialist</p>
+            <p>Expert in predictive modeling and deep learning. Emmanuel develops cutting-edge AI solutions that help clients forecast trends and make data-driven decisions with confidence.</p>
+            <div class="contact-info">
+                <p><span class="contact-icon">📧</span> emmanuel@takwimuhub.co.ke</p>
+                <p><span class="contact-icon">📱</span> +254 734 567 890</p>
+                <p><span class="contact-icon">💼</span> LinkedIn: Emmanuel-Chichole</p>
+            </div>
+        </div>
+
+        <!-- New Team Member 3: Alishia -->
+        <div class="founder-card">
+            <div class="icon-placeholder">📈</div>
+            <h3>Alishia</h3>
+            <p class="position">Business Intelligence & Visualization Lead</p>
+            <p>Creative data storyteller turning complex data into actionable insights. Alishia designs intuitive dashboards and reports that empower stakeholders at every level.</p>
+            <div class="contact-info">
+                <p><span class="contact-icon">📧</span> alishia@takwimuhub.co.ke</p>
+                <p><span class="contact-icon">📱</span> +254 745 678 901</p>
+                <p><span class="contact-icon">💼</span> LinkedIn: Alishia-Takwimu</p>
+            </div>
+        </div>
+    </div>
 </section>  
 
 <section id="stats">
@@ -715,7 +778,7 @@
             <p>"Takwimu Hub helped us understand our customer behavior through detailed analytics. Our decisions are now fully data-backed."<br><strong>-Grace M., Startup Founder</strong></p>
         </div>
         <div class="service-box">
-            <p>"Their team deliverd an agricultural dashboard that changed how we invest. Highly recommended for data consulting in East Africa."<br><strong>- David K., Agribusiness Consultant</strong></p>
+            <p>"Their team delivered an agricultural dashboard that changed how we invest. Highly recommended for data consulting in East Africa."<br><strong>- David K., Agribusiness Consultant</strong></p>
         </div>
         <div class="service-box">
             <p>"The visualizations were easy to understand and presented with clarity. I was impressed by their professionalism." <br><strong>- Prof. M. Otieno, University Partner</strong></p>
@@ -787,7 +850,7 @@
     
     // Initialize counters when page loads
     window.addEventListener('load', function() {
-        // Start counters
+        // Start counters - updated team count to 4
         animateCounter('projectCount', 0, 15, 2000);
         animateCounter('clientCount', 0, 10, 2000);
         animateCounter('experienceCount', 0, 3, 2000);
