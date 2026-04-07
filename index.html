@@ -3,901 +3,748 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Takwimu Hub | Data that Drives Decisions</title>
+    <title>Client Portal | Takwimu Hub</title>
     <style>
-        body {
-            font-family: 'Segoe', sans-serif;
-            margin: 0; padding: 0;
-            background: #F1F8E9;
-            color: #212121;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        header {
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #F1F8E9;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .portal-header {
             background: #2E7D32;
             color: white;
-            padding: 2em;
-            text-align: center;
-        }
-        nav {
-            background: #388E3C;
-            text-align: center;
-            padding: 1em 0;
-        } 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            padding: 2em;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            padding: 1.5em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 1em;
         }
-        .service-box {
-            background: white;
-            padding: 1em;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1em;
         }
-        .service-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        
+        .logo-area h1 {
+            font-size: 1.5em;
         }
-        footer {
-            background: #2E7D32;
+        
+        .back-home {
+            background: rgba(255,255,255,0.2);
             color: white;
-            text-align: center;
-            padding: 1.5em;
+            padding: 0.5em 1em;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
         }
-        .cta {
+        
+        .back-home:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+        
+        .logout-btn {
             background: #FFC107;
             color: #212121;
-            padding: 1em;
-            text-align: center;
-            border-radius: 8px; 
-            margin-top: 1em;
-        }
-         
-        /* Added CSS for About Us background image */
-        #about {
-            padding: 3em 2em;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            position: relative;
+            border: none;
+            padding: 0.5em 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
         }
         
-        #about h2 {
-            position: relative;
-            z-index: 2;
-            font-size: 2.5em;
-            margin-bottom: 1em;
+        .logout-btn:hover {
+            background: #FFB300;
         }
         
-        #about p {
-            position: relative;
-            z-index: 2;
-            font-size: 1.2em;
-            line-height: 1.6;
-            max-width: 800px;
+        /* Main Container */
+        .portal-container {
+            max-width: 1400px;
             margin: 0 auto;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            padding: 2em;
         }
         
-        #mission-vision {
-            padding: 3em 2em;
-            background: #ffffff;
-            text-align: center;
+        /* Welcome Section */
+        .welcome-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2em;
+            margin-bottom: 2em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        #mission-vision h2 {
+        .welcome-section h2 {
             color: #2E7D32;
-            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        /* Stats Cards */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5em;
             margin-bottom: 2em;
         }
         
-        .mv-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2em;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .mv-card {
+        .stat-card {
             background: white;
-            padding: 2.5em 2em;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-            border-top: 5px solid #2E7D32;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .mv-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
-        
-        .mv-icon {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-            color: #2E7D32;
-        }
-        
-        .mv-card h3 {
-            color: #2E7D32;
-            font-size: 1.8em;
-            margin-bottom: 1em;
-        }
-        
-        .mv-card p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #555;
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5em;
-            margin-top: 2em;
-        }
-        
-        .value-item {
-            background: #F1F8E9;
             padding: 1.5em;
-            border-radius: 10px;
-            text-align: left;
-            border-left: 4px solid #388E3C;
-            transition: transform 0.3s ease;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #2E7D32;
         }
         
-        .value-item:hover {
+        .stat-card h3 {
+            font-size: 2.5em;
+            color: #2E7D32;
+        }
+        
+        .stat-card p {
+            color: #666;
+            margin-top: 0.5em;
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2em;
+            margin-bottom: 2em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .projects-section h2 {
+            color: #2E7D32;
+            margin-bottom: 1.5em;
+            border-bottom: 2px solid #E8F5E9;
+            padding-bottom: 0.5em;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5em;
+        }
+        
+        .project-card {
+            background: #F9F9F9;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #E0E0E0;
+        }
+        
+        .project-card:hover {
             transform: translateY(-5px);
-            background: #E8F5E9;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
-        .value-icon {
-            font-size: 2em;
-            color: #2E7D32;
-            margin-bottom: 0.5em;
+        .project-header {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 1.2em;
         }
         
-        .value-item h4 {
-            color: #2E7D32;
-            margin: 0.5em 0;
+        .project-header h3 {
             font-size: 1.3em;
         }
         
-        .value-item p {
-            font-size: 1em;
-            color: #666;
-            margin: 0;
-        }
-
-        /* Founders Section */
-        #founders {
-            padding: 3em 2em;
-            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-            text-align: center;
+        .project-header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 0.3em;
         }
         
-        #founders h2 {
-            color: #2E7D32;
-            font-size: 2.5em;
+        .project-body {
+            padding: 1.2em;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 1em;
+            font-size: 0.9em;
+            color: #666;
         }
         
-        .founders-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2em;
-            max-width: 1400px;
-            margin: 0 auto;
+        .status {
+            padding: 0.2em 0.8em;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
         }
         
-        .founder-card {
+        .status.completed {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        
+        .status.in-progress {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+        
+        .deliverables {
+            margin-top: 1em;
+        }
+        
+        .deliverable-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8em;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.5em;
+            border: 1px solid #E0E0E0;
+            transition: background 0.3s;
+        }
+        
+        .deliverable-item:hover {
+            background: #E8F5E9;
+        }
+        
+        .deliverable-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
+        
+        .deliverable-icon {
+            font-size: 1.3em;
+        }
+        
+        .deliverable-name {
+            font-weight: 500;
+        }
+        
+        .deliverable-size {
+            font-size: 0.8em;
+            color: #888;
+        }
+        
+        .download-btn {
+            background: #2E7D32;
+            color: white;
+            border: none;
+            padding: 0.4em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: background 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #1B5E20;
+        }
+        
+        .view-dashboard {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: #FFC107;
+            color: #212121;
+            padding: 0.8em;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1em;
+            transition: background 0.3s;
+        }
+        
+        .view-dashboard:hover {
+            background: #FFB300;
+        }
+        
+        /* Password Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
             background: white;
             padding: 2em;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .founder-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .founder-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #2E7D32;
-            margin-bottom: 1em;
-            background: #E8F5E9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 3em;
-            color: #2E7D32;
-        }
-        
-        .founder-card h3 {
-            color: #2E7D32;
-            margin: 0.5em 0;
-            font-size: 1.5em;
-        }
-        
-        .position {
-            color: #388E3C;
-            font-weight: bold;
-            margin-bottom: 1em;
-            font-size: 1.1em;
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            padding: 1em;
-            border-radius: 8px;
-            margin-top: 1em;
-            text-align: left;
-        }
-        
-        .contact-info p {
-            margin: 0.5em 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .contact-icon {
-            color: #2E7D32;
-            font-weight: bold;
-        }
-        
-        #stats {
-            padding: 3em 2em;
-            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
-            color: white;
+            max-width: 400px;
+            width: 90%;
             text-align: center;
+            animation: slideIn 0.3s ease;
         }
         
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2em;
-            max-width: 1200px;
-            margin: 0 auto;
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
         
-        .stat-item {
-            padding: 1.5em;
-        }
-        
-        .stat-item h3 {
-            font-size: 3em;
-            margin: 0.5em 0;
-            color: #FFC107;
-        }
-        
-        .stat-item p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        #process {
-            padding: 3em 2em;
-            background: #ffffff;
-            text-align: center;
-        }
-        
-        #process h2 {
-            color: #2E7D32;
-            font-size: 2.5em;
-            margin-bottom: 2em;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2em;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .step {
-            padding: 2em 1em;
-            background: #F1F8E9;
-            border-radius: 10px;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .step:hover {
-            transform: translateY(-10px);
-            background: #E8F5E9;
-        }
-        
-        .step-number {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: #2E7D32;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        
-        .step h3 {
-            color: #2E7D32;
-            margin: 1.5em 0 1em 0;
-        }
-
-        /* Services section with gradient background */
-        #services {
-            padding: 3em 2em;
-            background: linear-gradient(135deg, #F1F8E9 0%, #E8F5E9 50%, #DCEDC8 100%);
-            position: relative;
-        }
-
-        #services h2 {
-            text-align: center;
-            color: #2E7D32;
-            margin-bottom: 2em;
-            font-size: 2.5em;
-            position: relative;
-            z-index: 2;
-        }
-
-        #services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(46, 125, 50, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.05) 0%, transparent 50%);
-            z-index: 1;
-        }
-
-        #services .services {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Portfolio section styling */
-        #portfolio h2 {
-            text-align: center;
-            color: #2E7D32;
-            margin-bottom: 2em;
-            font-size: 2.5em;
-        }
-        
-        /* Testimonials section styling */
-        #testimonials h2 {
-            text-align: center;
-            color: #2E7D32;
-            margin-bottom: 2em;
-            font-size: 2.5em;
-        }
-        
-        #testimonials .service-box {
-            border-left: 4px solid #FFC107;
-        }
-        
-        /* Contact section styling */
-        #contact {
-            padding: 3em 2em;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-        }
-
-        #contact h2 {
-            text-align: center;
+        .modal-content h3 {
             color: #2E7D32;
             margin-bottom: 1em;
-            font-size: 2.5em;
-        }
-
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3em;
-            max-width: 1200px;
-            margin: 0 auto;
         }
         
-        .contact-info-box {
-            background: white;
-            padding: 2em;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .contact-form {
-            background: white;
-            padding: 2em;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .contact-form h3 {
-            color: #2E7D32;
-            margin-bottom: 1.5em;
-            text-align: center;
-        }
-        
-        .contact-form form {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
+        .modal-content input {
+            width: 100%;
             padding: 0.8em;
+            margin: 1em 0;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
+            border-radius: 8px;
             font-size: 1em;
         }
         
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
+        .modal-content button {
+            background: #2E7D32;
+            color: white;
+            border: none;
+            padding: 0.8em 1.5em;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
         }
         
-        .submit-btn {
+        .error-msg {
+            color: #D32F2F;
+            font-size: 0.9em;
+            margin-top: 0.5em;
+            display: none;
+        }
+        
+        /* Login Page (when not authenticated) */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            padding: 2em;
+        }
+        
+        .login-card {
+            background: white;
+            padding: 2.5em;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .login-card img {
+            width: 100px;
+            margin-bottom: 1em;
+        }
+        
+        .login-card h2 {
+            color: #2E7D32;
+            margin-bottom: 0.5em;
+        }
+        
+        .login-card p {
+            color: #666;
+            margin-bottom: 2em;
+        }
+        
+        .login-card input {
+            width: 100%;
+            padding: 1em;
+            margin: 0.5em 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+        
+        .login-card button {
+            width: 100%;
             background: #2E7D32;
             color: white;
             border: none;
             padding: 1em;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            border-radius: 10px;
+            font-size: 1.1em;
             font-weight: bold;
-        }
-        
-        .submit-btn:hover {
-            background: #1B5E20;
-        }
-
-        .social-links {
-            margin: 1em 0 2em 0;
-        }
-        
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            display: inline-block;
-            padding: 0.5em 1em;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #2E7D32;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
             cursor: pointer;
-            display: none;
-            font-size: 1.5em;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: background 0.3s ease;
+            margin-top: 1em;
+            transition: background 0.3s;
         }
         
-        #backToTop:hover {
+        .login-card button:hover {
             background: #1B5E20;
         }
-
-        /* Team member icon placeholder styling */
-        .icon-placeholder {
-            font-size: 4em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 150px;
-            width: 150px;
-            background: #E8F5E9;
-            border-radius: 50%;
-            margin: 0 auto 1em auto;
-            border: 5px solid #2E7D32;
+        
+        .login-error {
+            color: #D32F2F;
+            margin-top: 1em;
+            display: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .portal-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <!-- Logo Placeholder -->
-    <img src="takwimu-hub-logo.png" alt="Takwimu Hub Logo" width="160" height="160" style="border-radius: 12px; margin-bottom: 1em;"/>
-    <h1>Takwimu Hub</h1>
-    <p>Empowering Africa with Insightful Data Solutions</p>
-</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#mission-vision">Mission & Values</a>
-    <a href="#founders">Team</a>
-    <a href="#stats">Stats</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-    <h2>About Us</h2>
-    <p>Takwimu Hub is a data consultancy firm based in Kenya focused on transforming African institutions through data-driven decisions. We provide advanced analytics, predictive modeling, and strategic insights to NGOs, SMEs, governments, and startups.</p>
-</section>
-
-<section id="mission-vision">
-    <h2>Our Mission, Vision & Core Values</h2>
+<!-- Client Portal Content (Hidden until login) -->
+<div id="portalContent" style="display: none;">
+    <div class="portal-header">
+        <div class="logo-area">
+            <h1>📊 Takwimu Hub</h1>
+            <span>Client Portal</span>
+        </div>
+        <div class="user-info">
+            <span>👋 Welcome, <span id="userName">Client</span></span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+            <a href="#" class="back-home" onclick="goHome()">🏠 Back to Site</a>
+        </div>
+    </div>
     
-    <div class="mv-container">
-        <!-- Mission Card -->
-        <div class="mv-card">
-            <div class="mv-icon">🎯</div>
-            <h3>Our Mission</h3>
-            <p>To empower African businesses and organizations with actionable data insights that drive growth, innovation, and sustainable development across the continent.</p>
+    <div class="portal-container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h2>Your Project Dashboard</h2>
+            <p>Access your deliverables, reports, and interactive dashboards here. All files are password-protected for your security.</p>
         </div>
-
-        <!-- Vision Card -->
-        <div class="mv-card">
-            <div class="mv-icon">🔭</div>
-            <h3>Our Vision</h3>
-            <p>To become Africa's leading data consultancy, transforming how decisions are made and setting the standard for data-driven excellence in emerging markets.</p>
-        </div>
-
-        <!-- Values Card -->
-        <div class="mv-card" style="grid-column: span 2;">
-            <div class="mv-icon">💎</div>
-            <h3>Our Core Values</h3>
-            <div class="values-grid">
-                <div class="value-item">
-                    <div class="value-icon">🎯</div>
-                    <h4>Excellence</h4>
-                    <p>We deliver exceptional quality in every project, ensuring our solutions exceed expectations.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">🤝</div>
-                    <h4>Integrity</h4>
-                    <p>We maintain transparency, honesty, and ethical standards in all our dealings.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">🌍</div>
-                    <h4>African Focus</h4>
-                    <p>We understand local contexts and design solutions specifically for African challenges.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">💡</div>
-                    <h4>Innovation</h4>
-                    <p>We embrace new technologies and creative approaches to solve complex problems.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">👥</div>
-                    <h4>Collaboration</h4>
-                    <p>We work closely with clients, treating them as partners in the journey to success.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">📚</div>
-                    <h4>Knowledge Sharing</h4>
-                    <p>We empower others through training and capacity building across Africa.</p>
-                </div>
+        
+        <!-- Stats Cards -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <h3 id="activeProjects">0</h3>
+                <p>Active Projects</p>
             </div>
-        </div>
-    </div>
-</section>
-
-<section id="founders">
-    <h2>Meet Our Team</h2>
-    <div class="founders-grid">
-        <!-- Existing Founder: Richard Ndiege -->
-        <div class="founder-card">
-            <img src="IMG_20250609_121935.jpg" alt="Richard Ndiege" class="founder-img"> 
-            <h3>Richard Ndiege Otieno</h3>
-            <p class="position">Chief Executive Officer & Lead Data Scientist</p>
-            <p>With 3+ years in data analytics and machine learning, Richard leads our technical vision and strategic direction.</p>
-            <div class="contact-info">
-                <p><span class="contact-icon">📧</span> richard@takwimuhub.co.ke</p>
-                <p><span class="contact-icon">📱</span> +254 759 159 461</p>
-                <p><span class="contact-icon">💼</span> LinkedIn: Richard-Ndiege-Takwimu</p>
+            <div class="stat-card">
+                <h3 id="completedProjects">0</h3>
+                <p>Completed Projects</p>
             </div>
-        </div>
-
-        <!-- New Team Member 1: Bwani Christantoz -->
-        <div class="founder-card">
-            <div class="icon-placeholder">📊</div>
-            <h3>Bwani Christantoz</h3>
-            <p class="position">Head of Data Engineering & Analytics</p>
-            <p>Specialist in building scalable data pipelines and ETL processes. Christantoz ensures our data infrastructure is robust, secure, and optimized for high-performance analytics.</p>
-            <div class="contact-info">
-                <p><span class="contact-icon">📧</span> christantoz@takwimuhub.co.ke</p>
-                <p><span class="contact-icon">📱</span> +254 723 456 789</p>
-                <p><span class="contact-icon">💼</span> LinkedIn: Bwani-Christantoz</p>
-            </div>
-        </div>
-
-        <!-- New Team Member 2: Emmanuel Chichole -->
-        <div class="founder-card">
-            <div class="icon-placeholder">🤖</div>
-            <h3>Emmanuel Chichole</h3>
-            <p class="position">Machine Learning & AI Specialist</p>
-            <p>Expert in predictive modeling and deep learning. Emmanuel develops cutting-edge AI solutions that help clients forecast trends and make data-driven decisions with confidence.</p>
-            <div class="contact-info">
-                <p><span class="contact-icon">📧</span> emmanuel@takwimuhub.co.ke</p>
-                <p><span class="contact-icon">📱</span> +254 734 567 890</p>
-                <p><span class="contact-icon">💼</span> LinkedIn: Emmanuel-Chichole</p>
-            </div>
-        </div>
-
-        <!-- New Team Member 3: Alishia -->
-        <div class="founder-card">
-            <div class="icon-placeholder">📈</div>
-            <h3>Alishia</h3>
-            <p class="position">Business Intelligence & Visualization Lead</p>
-            <p>Creative data storyteller turning complex data into actionable insights. Alishia designs intuitive dashboards and reports that empower stakeholders at every level.</p>
-            <div class="contact-info">
-                <p><span class="contact-icon">📧</span> alishia@takwimuhub.co.ke</p>
-                <p><span class="contact-icon">📱</span> +254 745 678 901</p>
-                <p><span class="contact-icon">💼</span> LinkedIn: Alishia-Takwimu</p>
-            </div>
-        </div>
-    </div>
-</section>  
-
-<section id="stats">
-    <h2>Our Impact in Numbers</h2>
-    <div class="stats-container">
-        <div class="stat-item">
-            <h3 id="projectCount">0</h3>
-            <p>Projects Completed</p>
-        </div>
-        <div class="stat-item">
-            <h3 id="clientCount">0</h3>
-            <p>Happy Clients</p>
-        </div>
-        <div class="stat-item">
-            <h3 id="experienceCount">0</h3>
-            <p>Years Experience</p>
-        </div>
-        <div class="stat-item">
-            <h3 id="teamCount">0</h3>
-            <p>Team Members</p>
-        </div>
-    </div>
-</section>
-
-<section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="service-box">
-            <h3>Data Analysis and Visualizations</h3>
-            <p>Clear dashboards and reports using PowerBI, Tableau, and python.</p>
-        </div>
-        <div class="service-box">
-            <h3>Predictive Analytics and Machine Learning</h3>
-            <p>Forecasting, classification, risk detection using machine learning.</p>
-        </div>
-        <div class="service-box">
-            <h3>Agricultural and Market Intelligence</h3>
-            <p>Insights for farmers and investors across Kenya and East Africa.</p>
-        </div>
-        <div class="service-box">
-            <h3>Training and Capacity Building</h3>
-            <p>Workshops in data science, Python, and decision-making tools.</p>
-        </div>
-    </div>
-</section>
-
-<section id="process">
-    <h2>Our Data-Driven Process</h2>
-    <div class="process-steps">
-        <div class="step">
-            <div class="step-number">1</div>
-            <h3>Discovery & Consultation</h3>
-            <p>We start by understanding your business needs, goals, and data challenges through in-depth consultations.</p>
-        </div>
-        <div class="step">
-            <div class="step-number">2</div>
-            <h3>Data Analysis & Exploration</h3>
-            <p>Our team dives deep into your data, cleaning, exploring, and identifying key patterns and insights.</p>
-        </div>
-        <div class="step">
-            <div class="step-number">3</div>
-            <h3>Solution Development</h3>
-            <p>We build customized data solutions, predictive models, and interactive dashboards tailored to your needs.</p>
-        </div>
-        <div class="step">
-            <div class="step-number">4</div>
-            <h3>Implementation & Training</h3>
-            <p>We deploy the solution and provide comprehensive training to ensure your team can leverage the insights.</p>
-        </div>
-    </div>
-</section>
-
-<section id="portfolio">
-    <h2>Our Portfolio</h2>
-    <div class="services">
-        <div class="service-box">
-            <h3>House Price Prediction</h3>
-            <p>Built a machine learning model to predict house prices across a Commercial Centre using Python, Pandas, and Scikit-learn.</p>
-        </div>
-        <div class="service-box">
-            <h3>Student Performance Analysis</h3>
-            <p>Analysed education data to uncover factors affecting student success. Delivered interactive dashboards to guide school decisions.</p>
-        </div>
-        <div class="service-box">
-            <h3>Forecast Daily Bike Rental Demand Using Time Series Models</h3>
-            <p>Used historical rental patterns, weather data, and temporal features to build a time series forecasting model that predicts daily bike rental demand for urban mobility systems.</p>
-        </div>
-        <div class="service-box">
-            <h3>Social Media Engagement Analysis & Performance Dashboard</h3>
-            <p>Used post-level engagement data across multiple platforms (Facebook, Instagram, Twitter) to build an interactive analytics dashboard that identifies top-performing content types, optimal posting times, and sentiment impact on audience engagement for data-driven social media strategy.</p>
-        </div>
-    </div>
-</section>
-
-<section id="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="services">
-        <div class="service-box">
-            <p>"Takwimu Hub helped us understand our customer behavior through detailed analytics. Our decisions are now fully data-backed."<br><strong>-Grace M., Startup Founder</strong></p>
-        </div>
-        <div class="service-box">
-            <p>"Their team delivered an agricultural dashboard that changed how we invest. Highly recommended for data consulting in East Africa."<br><strong>- David K., Agribusiness Consultant</strong></p>
-        </div>
-        <div class="service-box">
-            <p>"The visualizations were easy to understand and presented with clarity. I was impressed by their professionalism." <br><strong>- Prof. M. Otieno, University Partner</strong></p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-container">
-        <div class="contact-info-box">
-            <h3>Get in Touch</h3>
-            <div class="cta">
-                <p>Email: <strong>info@takwimuhub.co.ke</strong></p>
-                <p>Phone: +254 712 345 678</p>
-                <p>Address: Nairobi, Kenya</p>
-                <p>Business Hours: Mon-Fri, 8AM-5PM EAT</p>
-                <p>Let's transform data into impact together.</p>
+            <div class="stat-card">
+                <h3 id="totalDeliverables">0</h3>
+                <p>Total Deliverables</p>
             </div>
         </div>
         
-        <div class="contact-form">
-            <h3>Send us a Message</h3>
-            <form id="contactForm">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+        <!-- Projects Section -->
+        <div class="projects-section">
+            <h2>📁 Your Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
         </div>
     </div>
-</section>
-    
-<footer>
-    <div class="social-links">
-        <a href="#"><span class="contact-icon">📘</span> Facebook</a>
-        <a href="#"><span class="contact-icon">🐦</span> Twitter</a>
-        <a href="#"><span class="contact-icon">💼</span> LinkedIn</a>
-        <a href="#"><span class="contact-icon">📸</span> Instagram</a>
-        <a href="#"><span class="contact-icon">▶️</span> YouTube</a>
-    </div>
-    &copy; 2025 Takwimu Hub. All Rights Reserved.
-</footer>
+</div>
 
-<button id="backToTop" title="Go to top">↑</button>
+<!-- Login Page -->
+<div id="loginPage" class="login-container">
+    <div class="login-card">
+        <img src="takwimu-hub-logo.png" alt="Takwimu Hub" onerror="this.src='https://placehold.co/100x100/2E7D32/white?text=TH'">
+        <h2>Client Portal</h2>
+        <p>Secure access to your dashboards and reports</p>
+        <input type="text" id="loginEmail" placeholder="Email Address" autocomplete="off">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login to Portal</button>
+        <div class="login-error" id="loginError">Invalid email or password. Please try again.</div>
+        <p style="margin-top: 1.5em; font-size: 0.8em; color: #999;">Contact support@takwimuhub.co.ke for access</p>
+    </div>
+</div>
+
+<!-- Password Modal for Protected Deliverables -->
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+        <h3>🔒 Protected Deliverable</h3>
+        <p>Enter the password provided by your project manager to access this file.</p>
+        <input type="password" id="modalPassword" placeholder="Enter Password">
+        <button onclick="verifyPassword()">Unlock & Download</button>
+        <div class="error-msg" id="modalError">Incorrect password. Please try again.</div>
+    </div>
+</div>
 
 <script>
-    // Statistics Counter Animation
-    function animateCounter(id, start, end, duration) {
-        let obj = document.getElementById(id);
-        let startTime = null;
-        
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            let timeElapsed = currentTime - startTime;
-            let progress = Math.min(timeElapsed / duration, 1);
-            
-            let value = Math.floor(progress * (end - start) + start);
-            obj.textContent = value;
-            
-            if (progress < 1) {
-                requestAnimationFrame(animation);
-            }
+    // Client credentials (in production, this should be server-side)
+    // Demo clients - in real implementation, use backend authentication
+    const VALID_CLIENTS = {
+        "client@takwimuhub.co.ke": {
+            password: "client123",
+            name: "Client",
+            company: "Demo Client"
+        },
+        "demo@example.com": {
+            password: "demo123",
+            name: "Demo User",
+            company: "Demo Corp"
         }
-        
-        requestAnimationFrame(animation);
+    };
+    
+    // Project data with password-protected deliverables
+    const PROJECTS = [
+        {
+            id: 1,
+            name: "Social Media Engagement Analytics",
+            description: "Multi-platform social media performance dashboard with sentiment analysis.",
+            status: "completed",
+            date: "Dec 2024 - Mar 2025",
+            deliverables: [
+                { name: "Executive Summary Report.pdf", icon: "📄", size: "2.4 MB", password: "social2025" },
+                { name: "Interactive Dashboard (PowerBI).pbix", icon: "📊", size: "4.1 MB", password: "social2025" },
+                { name: "Raw Data & Analysis.csv", icon: "📑", size: "1.8 MB", password: "social2025" }
+            ],
+            dashboardUrl: "#"
+        },
+        {
+            id: 2,
+            name: "Bike Rental Demand Forecast",
+            description: "Time series forecasting model for daily bike rental demand prediction.",
+            status: "completed",
+            date: "Jan 2025 - Feb 2025",
+            deliverables: [
+                { name: "Forecast Model Report.pdf", icon: "📄", size: "1.2 MB", password: "bike2025" },
+                { name: "Time Series Analysis.ipynb", icon: "📓", size: "3.2 MB", password: "bike2025" },
+                { name: "Predictions Dashboard.html", icon: "🌐", size: "0.8 MB", password: "bike2025" }
+            ],
+            dashboardUrl: "#"
+        },
+        {
+            id: 3,
+            name: "Smart Ambulance Route Optimization",
+            description: "Real-time GPS and traffic data pipeline for emergency response optimization.",
+            status: "in-progress",
+            date: "Feb 2025 - Present",
+            deliverables: [
+                { name: "Progress Report - Phase 1.pdf", icon: "📄", size: "1.5 MB", password: "ambulance2025" },
+                { name: "Route Optimization Algorithm.py", icon: "💻", size: "5.2 MB", password: "ambulance2025" },
+                { name: "Live Tracking Demo Link.txt", icon: "🔗", size: "0.1 MB", password: "ambulance2025" }
+            ],
+            dashboardUrl: "#"
+        },
+        {
+            id: 4,
+            name: "House Price Prediction Model",
+            description: "Machine learning model for predicting property prices in commercial centers.",
+            status: "completed",
+            date: "Oct 2024 - Nov 2024",
+            deliverables: [
+                { name: "Model Performance Report.pdf", icon: "📄", size: "1.1 MB", password: "house2024" },
+                { name: "Prediction Model.pkl", icon: "🤖", size: "8.5 MB", password: "house2024" },
+                { name: "Price Predictor App.py", icon: "🐍", size: "2.3 MB", password: "house2024" }
+            ],
+            dashboardUrl: "#"
+        },
+        {
+            id: 5,
+            name: "Student Performance Analysis",
+            description: "Educational data analytics to identify factors affecting student success.",
+            status: "completed",
+            date: "Aug 2024 - Sep 2024",
+            deliverables: [
+                { name: "Insights & Recommendations.pdf", icon: "📄", size: "1.8 MB", password: "student2024" },
+                { name: "Interactive Dashboard.twbx", icon: "📊", size: "3.5 MB", password: "student2024" }
+            ],
+            dashboardUrl: "#"
+        }
+    ];
+    
+    // Current state
+    let currentUser = null;
+    let currentDeliverable = null;
+    
+    // Check if user is logged in
+    function checkAuth() {
+        const savedUser = localStorage.getItem('takwimu_user');
+        if (savedUser) {
+            currentUser = JSON.parse(savedUser);
+            showPortal();
+        } else {
+            showLogin();
+        }
     }
     
-    // Initialize counters when page loads
-    window.addEventListener('load', function() {
-        // Start counters - updated team count to 4
-        animateCounter('projectCount', 0, 15, 2000);
-        animateCounter('clientCount', 0, 10, 2000);
-        animateCounter('experienceCount', 0, 3, 2000);
-        animateCounter('teamCount', 0, 4, 2000);
-    });
-    
-    // Back to Top Button
-    const backToTopButton = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.style.display = 'block';
+    // Login function
+    function login() {
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        
+        if (VALID_CLIENTS[email] && VALID_CLIENTS[email].password === password) {
+            currentUser = {
+                email: email,
+                name: VALID_CLIENTS[email].name,
+                company: VALID_CLIENTS[email].company
+            };
+            localStorage.setItem('takwimu_user', JSON.stringify(currentUser));
+            showPortal();
         } else {
-            backToTopButton.style.display = 'none';
+            document.getElementById('loginError').style.display = 'block';
         }
-    });
+    }
     
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    // Logout function
+    function logout() {
+        localStorage.removeItem('takwimu_user');
+        currentUser = null;
+        showLogin();
+    }
     
-    // Contact Form Submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
-    });
+    // Show portal content
+    function showPortal() {
+        document.getElementById('loginPage').style.display = 'none';
+        document.getElementById('portalContent').style.display = 'block';
+        document.getElementById('userName').innerHTML = currentUser.name;
+        loadProjects();
+    }
     
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+    // Show login page
+    function showLogin() {
+        document.getElementById('loginPage').style.display = 'flex';
+        document.getElementById('portalContent').style.display = 'none';
+        document.getElementById('loginEmail').value = '';
+        document.getElementById('loginPassword').value = '';
+        document.getElementById('loginError').style.display = 'none';
+    }
+    
+    // Load projects into grid
+    function loadProjects() {
+        const projectsGrid = document.getElementById('projectsGrid');
+        let activeCount = 0;
+        let completedCount = 0;
+        let deliverablesCount = 0;
+        
+        projectsGrid.innerHTML = '';
+        
+        PROJECTS.forEach(project => {
+            if (project.status === 'completed') {
+                completedCount++;
+            } else {
+                activeCount++;
             }
+            deliverablesCount += project.deliverables.length;
+            
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            
+            // Build deliverables HTML
+            let deliverablesHtml = '<div class="deliverables">';
+            project.deliverables.forEach(deliverable => {
+                deliverablesHtml += `
+                    <div class="deliverable-item">
+                        <div class="deliverable-info">
+                            <span class="deliverable-icon">${deliverable.icon}</span>
+                            <div>
+                                <div class="deliverable-name">${deliverable.name}</div>
+                                <div class="deliverable-size">${deliverable.size}</div>
+                            </div>
+                        </div>
+                        <button class="download-btn" onclick="requestDownload('${deliverable.name.replace(/'/g, "\\'")}', '${deliverable.password}')">Download</button>
+                    </div>
+                `;
+            });
+            deliverablesHtml += '</div>';
+            
+            projectCard.innerHTML = `
+                <div class="project-header">
+                    <h3>${project.name}</h3>
+                    <p>${project.description}</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-meta">
+                        <span>📅 ${project.date}</span>
+                        <span class="status ${project.status}">${project.status === 'completed' ? '✓ Completed' : '🔄 In Progress'}</span>
+                    </div>
+                    ${deliverablesHtml}
+                    <a href="${project.dashboardUrl}" class="view-dashboard">📈 View Interactive Dashboard →</a>
+                </div>
+            `;
+            
+            projectsGrid.appendChild(projectCard);
         });
-    });
+        
+        document.getElementById('activeProjects').textContent = activeCount;
+        document.getElementById('completedProjects').textContent = completedCount;
+        document.getElementById('totalDeliverables').textContent = deliverablesCount;
+    }
+    
+    // Request download with password verification
+    function requestDownload(deliverableName, password) {
+        currentDeliverable = { name: deliverableName, password: password };
+        const modal = document.getElementById('passwordModal');
+        const modalPassword = document.getElementById('modalPassword');
+        const modalError = document.getElementById('modalError');
+        
+        modalPassword.value = '';
+        modalError.style.display = 'none';
+        modal.style.display = 'flex';
+    }
+    
+    // Verify password and trigger download
+    function verifyPassword() {
+        const enteredPassword = document.getElementById('modalPassword').value;
+        const modalError = document.getElementById('modalError');
+        
+        if (currentDeliverable && enteredPassword === currentDeliverable.password) {
+            // Password correct - simulate download
+            modalError.style.display = 'none';
+            document.getElementById('passwordModal').style.display = 'none';
+            
+            // Show success message
+            alert(`✅ Downloading: ${currentDeliverable.name}\n\nYour download will start shortly. In a production environment, this would trigger the actual file download.`);
+            
+            // In a real implementation, you would redirect to the actual file URL
+            // window.location.href = `/downloads/${encodeURIComponent(currentDeliverable.name)}`;
+            
+            currentDeliverable = null;
+        } else {
+            modalError.style.display = 'block';
+        }
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('passwordModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            currentDeliverable = null;
+        }
+    };
+    
+    // Go back to main site
+    function goHome() {
+        window.location.href = '#';
+        alert('Return to main website (update the URL to your main site)');
+    }
+    
+    // Initialize
+    checkAuth();
 </script>
 
 </body>
